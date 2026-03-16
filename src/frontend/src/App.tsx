@@ -334,7 +334,7 @@ function Navbar() {
   }, []);
 
   const textColor = "text-white";
-  const mutedColor = "text-white/80";
+  const _mutedColor = "text-white/80";
 
   return (
     <nav
@@ -349,19 +349,13 @@ function Navbar() {
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="flex items-center gap-2 shrink-0"
+          className="flex items-center gap-2 shrink-0 bg-white rounded-full p-1 overflow-hidden"
         >
-          <span className="text-2xl">🍽️</span>
-          <div className="text-left">
-            <div
-              className={`font-display font-bold text-sm leading-tight ${textColor}`}
-            >
-              Smiley Home Restaurant
-            </div>
-            <div className={`text-xs leading-tight ${mutedColor}`}>
-              Mandsaur
-            </div>
-          </div>
+          <img
+            src="/assets/uploads/image-1.png"
+            alt="Smiley Home Restaurant Logo"
+            className="h-16 w-auto object-contain"
+          />
         </button>
 
         {/* Desktop nav links */}
@@ -469,17 +463,27 @@ function Navbar() {
 // ─── HERO ────────────────────────────────────────────────────────────────────
 function HeroSection() {
   const HERO_IMAGES = [
-    "/assets/uploads/IMG_0621-2.png",
-    "/assets/uploads/IMG_0621-1-3.png",
+    "/assets/uploads/IMG_6278-4.jpeg",
+    "/assets/uploads/IMG_1068-1.jpeg",
+    "/assets/uploads/IMG_1063-2-2.jpeg",
+    "/assets/uploads/IMG_1063-3-3.jpeg",
   ];
   const [activeSlide, setActiveSlide] = useState(0);
-
+  const [prevSlide, setPrevSlide] = useState<number | null>(null);
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
+      setActiveSlide((prev) => {
+        setPrevSlide(prev);
+        return (prev + 1) % HERO_IMAGES.length;
+      });
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
+
+  const goToSlide = (idx: number) => {
+    setPrevSlide(activeSlide);
+    setActiveSlide(idx);
+  };
 
   const DOTS = [
     { id: "d1", size: 6, top: "15%", left: "10%", anim: "float-1" },
@@ -502,37 +506,45 @@ function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Image slideshow background */}
-      {HERO_IMAGES.map((src, i) => (
-        <div
-          key={src}
-          className="absolute inset-0"
-          style={{
-            opacity: i === activeSlide ? 1 : 0,
-            transition: "opacity 1.2s ease-in-out",
-            zIndex: 0,
-          }}
-        >
-          <img
-            src={src}
-            alt=""
-            className="w-full h-full object-cover"
+      {HERO_IMAGES.map((src, i) => {
+        const isActive = i === activeSlide;
+        const isPrev = i === prevSlide;
+        let transform = "translateX(100%)";
+        if (isActive) transform = "translateX(0%)";
+        else if (isPrev) transform = "translateX(-100%)";
+        return (
+          <div
+            key={src}
+            className="absolute inset-0"
             style={{
-              animation:
-                i === activeSlide
-                  ? "ken-burns 8s ease-in-out infinite alternate"
-                  : "none",
+              opacity: isActive ? 1 : isPrev ? 0 : 0,
+              transform,
+              transition:
+                "opacity 0.8s ease-in-out, transform 0.8s ease-in-out",
+              zIndex: isActive ? 1 : isPrev ? 0 : 0,
             }}
-          />
-        </div>
-      ))}
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75 z-[1]" />
+          >
+            <img
+              src={src}
+              alt=""
+              className="w-full h-full object-cover object-center"
+              style={{
+                animation: isActive
+                  ? "ken-burns-dramatic 9s ease-in-out forwards"
+                  : "none",
+              }}
+            />
+          </div>
+        );
+      })}
+      {/* Dark gradient overlay — bottom for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/80 z-[2]" />
 
       {/* Floating dots */}
       {DOTS.map((dot) => (
         <div
           key={dot.id}
-          className={`absolute rounded-full bg-white/20 ${dot.anim} z-[2]`}
+          className={`absolute rounded-full bg-white/20 ${dot.anim} z-[3]`}
           style={{
             width: dot.size,
             height: dot.size,
@@ -541,11 +553,6 @@ function HeroSection() {
           }}
         />
       ))}
-
-      {/* Logo badge top-left */}
-      <div className="absolute top-20 left-4 w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-white/40 bg-emerald-700/60 flex items-center justify-center text-3xl z-20">
-        🍽️
-      </div>
 
       {/* Center content */}
       <motion.div
@@ -606,6 +613,26 @@ function HeroSection() {
           </a>
         </motion.div>
       </motion.div>
+
+      {/* Navigation dots */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2 items-center">
+        {HERO_IMAGES.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => goToSlide(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className="transition-all duration-300 rounded-full border-2 focus:outline-none"
+            style={{
+              width: i === activeSlide ? 24 : 10,
+              height: 10,
+              background:
+                i === activeSlide ? "#F59E0B" : "rgba(255,255,255,0.45)",
+              borderColor: i === activeSlide ? "#F59E0B" : "transparent",
+            }}
+          />
+        ))}
+      </div>
 
       {/* Bouncing chevron */}
       <motion.div
@@ -713,13 +740,12 @@ function AboutSection() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="rounded-3xl border-4 border-green-300 shadow-warm-lg h-80 lg:h-[480px] bg-green-50 flex items-center justify-center overflow-hidden">
-              <div className="text-center">
-                <div className="text-6xl mb-3">📸</div>
-                <div className="text-green-500 font-medium">
-                  Photos Coming Soon
-                </div>
-              </div>
+            <div className="rounded-3xl border-4 border-green-300 shadow-warm-lg h-80 lg:h-[480px] overflow-hidden">
+              <img
+                src="/assets/uploads/IMG_6278-4.jpeg"
+                alt="Smiley Home Restaurant"
+                className="object-cover w-full h-full"
+              />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-4 left-6 bg-card border border-border rounded-2xl px-4 py-3 shadow-warm flex items-center gap-2">
@@ -748,18 +774,24 @@ function DiningSection() {
       title: "Open Air Rooftop Dining",
       desc: "Enjoy your meal under the open sky at our rooftop restaurant. Fresh air, beautiful ambiance, and delicious food — perfect for relaxed evenings with family and friends.",
       tags: ["Open Air", "Rooftop", "Evening Dining"],
+      img: "/assets/uploads/WhatsApp-Image-2026-01-28-at-3.49.10-PM-2.jpeg",
+      rotate: false,
     },
     {
       icon: "🏮",
       title: "Indoor Theme Dining",
       desc: "Immerse yourself in our beautifully themed indoor spaces. Boho-inspired décor, soft lighting, and a cozy atmosphere that makes every meal feel special.",
       tags: ["Boho Décor", "AC Seating", "Theme Lighting"],
+      img: "/assets/uploads/IMG_2129-1.jpeg",
+      rotate: true,
     },
     {
       icon: "🎂",
       title: "Private Celebration Dining",
       desc: "Make your special moments unforgettable with our private dining setups. Perfect for birthdays, anniversaries, and surprise parties with personalized decoration.",
       tags: ["Birthday", "Anniversary", "Private Setup"],
+      img: "/assets/uploads/WhatsApp-Image-2026-01-28-at-3.49.09-PM-2--3.jpeg",
+      rotate: false,
     },
   ];
 
@@ -805,13 +837,24 @@ function DiningSection() {
               transition={{ delay: i * 0.1, duration: 0.55 }}
               className="bg-card border border-border rounded-3xl overflow-hidden shadow-xs hover:shadow-warm-lg transition-all hover:-translate-y-1"
             >
-              <div className="h-48 bg-green-50 border-b-2 border-dashed border-green-200 flex flex-col items-center justify-center gap-2">
-                <span className="text-5xl">{card.icon}</span>
-                <span className="text-3xl">📸</span>
-                <span className="text-green-400 text-sm">
-                  Photo Coming Soon
-                </span>
-              </div>
+              {card.rotate ? (
+                <div className="h-48 overflow-hidden flex items-center justify-center">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                    style={{ transform: "rotate(90deg) scale(1.8)" }}
+                  />
+                </div>
+              ) : (
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
               <div className="p-5">
                 <h3 className="font-display font-bold text-xl text-emerald-700 mb-2">
                   {card.title}
@@ -1047,13 +1090,41 @@ function OffersSection() {
 // ─── GALLERY ─────────────────────────────────────────────────────────────────
 function GallerySection() {
   const photos = [
-    { alt: "Smiley Restaurant Interior with Guests", h: "h-48" },
-    { alt: "Smiley Entrance at Night", h: "h-64" },
-    { alt: "Pizza with Salad and Drinks", h: "h-56" },
-    { alt: "Pasta with Meatballs", h: "h-72" },
-    { alt: "Full Food Spread", h: "h-52" },
-    { alt: "Outdoor Courtyard with Colorful Lights", h: "h-60" },
-    { alt: "Smiley Entrance Daytime", h: "h-44" },
+    {
+      src: "/assets/uploads/IMG_6278-4.jpeg",
+      alt: "Smiley Restaurant Entrance at Night",
+      rotate: false,
+    },
+    {
+      src: "/assets/uploads/IMG_1068-1.jpeg",
+      alt: "Colorful Drinks",
+      rotate: false,
+    },
+    {
+      src: "/assets/uploads/IMG_1063-2-2.jpeg",
+      alt: "Food Spread with Noodles",
+      rotate: false,
+    },
+    {
+      src: "/assets/uploads/IMG_1063-3-3.jpeg",
+      alt: "Food Spread Noodles Angle 2",
+      rotate: false,
+    },
+    {
+      src: "/assets/uploads/IMG_2129-1.jpeg",
+      alt: "Indoor Dining Full",
+      rotate: true,
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-01-28-at-3.49.10-PM-2.jpeg",
+      alt: "Rooftop Terrace",
+      rotate: false,
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-01-28-at-3.49.09-PM-2--3.jpeg",
+      alt: "Courtyard View",
+      rotate: false,
+    },
   ];
 
   return (
@@ -1080,20 +1151,30 @@ function GallerySection() {
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 mb-10">
           {photos.map((photo, i) => (
             <motion.div
-              key={photo.alt}
+              key={photo.src}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className={`break-inside-avoid overflow-hidden rounded-xl shadow-md ${photo.h} bg-green-50 border-2 border-dashed border-green-200 flex flex-col items-center justify-center gap-2`}
+              className="break-inside-avoid overflow-hidden rounded-xl shadow-md"
+              style={{ transition: "transform 0.3s" }}
+              whileHover={{ scale: 1.03 }}
             >
-              <span className="text-4xl">📸</span>
-              <span className="text-teal-500 text-sm font-medium">
-                Photo Coming Soon
-              </span>
-              <span className="text-emerald-600 text-xs text-center px-4">
-                {photo.alt}
-              </span>
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  display: "block",
+                  ...(photo.rotate
+                    ? { transform: "rotate(90deg) scale(1.5)" }
+                    : {}),
+                }}
+                className="rounded-xl"
+              />
             </motion.div>
           ))}
         </div>
@@ -1203,12 +1284,12 @@ function BranchesSection() {
               transition={{ delay: i * 0.15 }}
               className="bg-card border border-border rounded-3xl overflow-hidden shadow-xs hover:shadow-warm transition-all"
             >
-              <div className="h-48 bg-green-50 border-b-2 border-dashed border-green-200 flex flex-col items-center justify-center gap-2">
-                <span className="text-5xl">{b.icon}</span>
-                <span className="text-3xl">📸</span>
-                <span className="text-green-400 text-sm">
-                  Photo Coming Soon
-                </span>
+              <div className="h-48 bg-amber-50 border-b border-amber-100 flex items-center justify-center">
+                <img
+                  src="/assets/uploads/Fainal-second-home-logo-1-1.PNG"
+                  alt="Second Home Logo"
+                  className="h-36 w-auto object-contain drop-shadow-md"
+                />
               </div>
               <div className="p-6">
                 <h3 className="font-display text-xl font-bold text-teal-700 mb-1">
@@ -1650,7 +1731,7 @@ function ContactSection() {
     {
       icon: "🕐",
       label: "Hours",
-      value: "Mon-Sun: 11:00 AM – 11:00 PM",
+      value: "Mon-Sun: 1:00 PM – 11:00 PM",
       href: null,
     },
   ];
