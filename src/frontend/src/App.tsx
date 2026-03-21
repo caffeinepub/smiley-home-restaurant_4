@@ -46,211 +46,6 @@ const NAV_LINKS = [
 ];
 
 // ─── MENU DATA ───────────────────────────────────────────────────────────────
-const MENU_CATEGORIES = [
-  { key: "fastFood", label: "Fast Food", emoji: "🍔" },
-  { key: "tandoori", label: "Tandoori", emoji: "🔥" },
-  { key: "sandwich", label: "Sandwiches", emoji: "🥪" },
-  { key: "friesSnacks", label: "Fries & Snacks", emoji: "🍟" },
-  { key: "soup", label: "Soups", emoji: "🍜" },
-  { key: "chaat", label: "Chaat", emoji: "🌽" },
-];
-
-type MenuItem = { name: string; desc: string; price: number };
-const MENU_ITEMS: Record<string, MenuItem[]> = {
-  fastFood: [
-    {
-      name: "Vada Pav",
-      desc: "Classic Mumbai street food — spiced potato fritter in a soft bun",
-      price: 30,
-    },
-    {
-      name: "Pav Bhaji",
-      desc: "Buttery spiced vegetable curry served with toasted pav",
-      price: 80,
-    },
-    {
-      name: "Veg Burger",
-      desc: "Crispy veggie patty with fresh veggies in a sesame bun",
-      price: 70,
-    },
-    {
-      name: "Paneer Frankie Roll",
-      desc: "Soft chapati rolled with spiced paneer and fresh vegetables",
-      price: 60,
-    },
-    {
-      name: "Aloo Tikki",
-      desc: "Crispy spiced potato patties with tangy chutneys",
-      price: 40,
-    },
-    {
-      name: "Cheese Veg Burger",
-      desc: "Classic veg burger loaded with melted cheese",
-      price: 90,
-    },
-  ],
-  tandoori: [
-    {
-      name: "Paneer Tikka",
-      desc: "Marinated paneer cubes grilled to perfection in tandoor",
-      price: 160,
-    },
-    {
-      name: "Tandoori Paneer Malai",
-      desc: "Creamy white paneer tikka with mild aromatic spices",
-      price: 180,
-    },
-    {
-      name: "Veg Seekh Kebab",
-      desc: "Seasoned vegetable kebab grilled on skewer in tandoor",
-      price: 140,
-    },
-    {
-      name: "Tandoori Roti",
-      desc: "Whole wheat flatbread baked in clay oven",
-      price: 15,
-    },
-    {
-      name: "Paneer Tikka Masala Skewer",
-      desc: "Paneer skewer coated with rich tandoori masala",
-      price: 170,
-    },
-    {
-      name: "Mushroom Tikka",
-      desc: "Juicy mushrooms marinated and grilled in tandoor",
-      price: 150,
-    },
-  ],
-  sandwich: [
-    {
-      name: "Grilled Veg Sandwich",
-      desc: "Toasted sandwich with seasoned vegetables and melted cheese",
-      price: 60,
-    },
-    {
-      name: "Club Sandwich",
-      desc: "Triple-decker toasted sandwich with fresh vegetables",
-      price: 100,
-    },
-    {
-      name: "Paneer Sandwich",
-      desc: "Soft paneer with herbs and spices in toasted bread",
-      price: 80,
-    },
-    {
-      name: "Corn Cheese Sandwich",
-      desc: "Sweet corn and melted cheese in golden toasted bread",
-      price: 70,
-    },
-    {
-      name: "Bombay Sandwich",
-      desc: "Mumbai-style layered sandwich with green chutney",
-      price: 50,
-    },
-    {
-      name: "Garlic Bread Sandwich",
-      desc: "Crispy garlic butter bread with herbs and cheese",
-      price: 80,
-    },
-  ],
-  friesSnacks: [
-    {
-      name: "Masala Fries",
-      desc: "Crispy fries tossed with chaat masala and coriander",
-      price: 70,
-    },
-    {
-      name: "Cheese Fries",
-      desc: "Golden fries topped with generous melted cheese sauce",
-      price: 90,
-    },
-    {
-      name: "Samosa (2 pcs)",
-      desc: "Crispy pastry filled with spiced potatoes and peas",
-      price: 50,
-    },
-    {
-      name: "Paneer Pakora",
-      desc: "Soft paneer pieces dipped in spiced chickpea batter",
-      price: 80,
-    },
-    {
-      name: "Onion Bhaji",
-      desc: "Crispy spiced onion fritters, a classic Indian snack",
-      price: 60,
-    },
-    {
-      name: "Mix Pakora Basket",
-      desc: "Assortment of crispy fried fritters for sharing",
-      price: 90,
-    },
-  ],
-  soup: [
-    {
-      name: "Tomato Soup",
-      desc: "Rich creamy tomato soup garnished with fresh cream",
-      price: 70,
-    },
-    {
-      name: "Sweet Corn Soup",
-      desc: "Thick comforting soup with sweet corn kernels",
-      price: 80,
-    },
-    {
-      name: "Mushroom Soup",
-      desc: "Earthy creamy mushroom soup with herbs",
-      price: 90,
-    },
-    {
-      name: "Hot & Sour Soup",
-      desc: "Indo-Chinese style bold and tangy broth with vegetables",
-      price: 80,
-    },
-    {
-      name: "Manchow Soup",
-      desc: "Spicy broth topped with crispy fried noodles",
-      price: 85,
-    },
-    {
-      name: "Lemon Coriander Soup",
-      desc: "Light refreshing soup with fresh lemon and coriander",
-      price: 75,
-    },
-  ],
-  chaat: [
-    {
-      name: "Pani Puri (6 pcs)",
-      desc: "Crispy hollow puris filled with spiced tamarind water",
-      price: 50,
-    },
-    {
-      name: "Bhel Puri",
-      desc: "Puffed rice tossed with vegetables, sev, and chutneys",
-      price: 60,
-    },
-    {
-      name: "Dahi Puri",
-      desc: "Puris filled with creamy yogurt, chutneys, and sev",
-      price: 70,
-    },
-    {
-      name: "Sev Puri",
-      desc: "Crispy puris topped with potatoes and crunchy sev",
-      price: 60,
-    },
-    {
-      name: "Ragda Pattice",
-      desc: "Crispy potato patties with white peas curry and chutneys",
-      price: 80,
-    },
-    {
-      name: "Aloo Chaat",
-      desc: "Crispy potatoes tossed with spices and tangy chutneys",
-      price: 60,
-    },
-  ],
-};
-
 // ─── REVIEWS DATA ────────────────────────────────────────────────────────────
 const REVIEWS = [
   {
@@ -349,12 +144,12 @@ function Navbar() {
         <button
           type="button"
           onClick={() => scrollTo("home")}
-          className="flex items-center gap-2 shrink-0 bg-white rounded-full p-1 overflow-hidden"
+          className="flex items-center gap-2 shrink-0 bg-white rounded-full p-1 overflow-hidden w-20 h-20"
         >
           <img
             src="/assets/uploads/image-1.png"
             alt="Smiley Home Restaurant Logo"
-            className="h-16 w-auto object-contain"
+            className="h-full w-full object-contain"
           />
         </button>
 
@@ -424,10 +219,12 @@ function Navbar() {
                   type="button"
                   key={link.id}
                   data-ocid="nav.link"
-                  onClick={() => {
+                  onPointerDown={(e) => {
+                    e.preventDefault();
                     scrollTo(link.id);
                     setMobileOpen(false);
                   }}
+                  style={{ touchAction: "manipulation" }}
                   className="text-left px-3 py-2 text-sm font-medium text-white hover:bg-emerald-700 rounded-lg transition-colors"
                 >
                   {link.label}
@@ -895,11 +692,402 @@ function DiningSection() {
 
 // ─── MENU ────────────────────────────────────────────────────────────────────
 function MenuSection() {
-  const [activeCategory, setActiveCategory] = useState("fastFood");
+  const menuSections = [
+    {
+      title: "Welcome Drinks",
+      emoji: "🍹",
+      image: "/assets/generated/menu-welcome-drinks.dim_600x400.jpg",
+      items: [
+        { name: "Mint Mojito", price: "₹150" },
+        { name: "Watermelon Mojito", price: "₹160" },
+        { name: "Iced Tea", price: "₹170" },
+        { name: "Kiwi Mojito", price: "₹180" },
+        { name: "Kala Khatta", price: "₹190" },
+        { name: "Green Apple Mojito", price: "₹200" },
+        { name: "Spicy Guava", price: "₹200" },
+        { name: "Traditional", price: "₹250" },
+        { name: "One More Time", price: "₹250" },
+      ],
+    },
+    {
+      title: "Cold Drink",
+      emoji: "🥤",
+      image: "/assets/generated/menu-cold-drinks.dim_600x400.jpg",
+      items: [
+        { name: "Coke", price: "₹60" },
+        { name: "Thums Up", price: "₹60" },
+        { name: "Sprite", price: "₹60" },
+        { name: "Mazza", price: "₹60" },
+        { name: "Butters Milk", price: null },
+        { name: "Nimbu Pani", price: "₹60" },
+        { name: "Lassi", price: "₹100" },
+        { name: "Mineral Water", price: "₹20" },
+      ],
+    },
+    {
+      title: "Tea / Coffee",
+      emoji: "☕",
+      image: "/assets/generated/menu-tea-coffee.dim_600x400.jpg",
+      items: [
+        { name: "Tea", price: "₹50" },
+        { name: "Black Tea", price: "₹60" },
+        { name: "Lemon Tea", price: "₹70" },
+        { name: "Hot Coffee", price: "₹100" },
+        { name: "Black Coffee Hot", price: "₹120" },
+        { name: "Black Cold Coffee", price: "₹150" },
+        { name: "Cold Coffee with Ice Cream", price: "₹250" },
+      ],
+    },
+    {
+      title: "Shakes",
+      emoji: "🥤",
+      image: "/assets/generated/menu-shakes.dim_600x400.jpg",
+      items: [
+        { name: "KitKat Shake", price: "₹200" },
+        { name: "Chocolate Shake", price: "₹200" },
+        { name: "Oreo Shake", price: "₹200" },
+        { name: "Banana Shake", price: "₹200" },
+        { name: "Cold Pina Colada", price: "₹200" },
+        { name: "Strawberry Colada", price: "₹200" },
+        { name: "Peanut Punch", price: "₹200" },
+        { name: "Nina Punch", price: "₹200" },
+        { name: "Cold Coffee", price: "₹200" },
+        { name: "Cold Coffee with Ice Cream", price: "₹300" },
+      ],
+    },
+    {
+      title: "Starters",
+      emoji: "🍽",
+      image: "/assets/generated/menu-starters.dim_600x400.jpg",
+      items: [
+        { name: "Pav Bhaji", price: "₹150" },
+        { name: "Garlic Bread", price: "₹200" },
+        { name: "Noodles", price: "₹200" },
+        { name: "Hakka Noodles", price: "₹200" },
+        { name: "Schezwan Noodles", price: "₹200" },
+        { name: "Kolhapuri Noodles", price: "₹200" },
+        { name: "Chowmein", price: "₹200" },
+        { name: "Manchurian Dry", price: "₹200" },
+        { name: "Manchurian Semi Gravy", price: "₹200" },
+        { name: "Manchurian Gravy", price: "₹200" },
+        { name: "Veg Maggi", price: "₹200" },
+        { name: "Chinese Bhel", price: "₹250" },
+        { name: "American Chopsuey", price: "₹250" },
+        { name: "Paneer Chilli Dry", price: "₹300" },
+        { name: "Paneer Chilli Gravy", price: "₹300" },
+        { name: "Veg Crispy", price: "₹300" },
+        { name: "Veg Crispy Corn", price: "₹300" },
+        { name: "Veg Lollipop", price: "₹300" },
+        { name: "Paneer 65", price: "₹350" },
+        { name: "Paneer Tikka Dry", price: "₹350" },
+        { name: "Hara Garlic Tikka", price: "₹350" },
+      ],
+    },
+    {
+      title: "Sandwich / Fries",
+      emoji: "🥪",
+      image: "/assets/generated/menu-sandwich-fries.dim_600x400.jpg",
+      items: [
+        { name: "Vegetable Cheese Sandwich", price: "₹200" },
+        { name: "Cheese Sandwich", price: "₹250" },
+        { name: "Double Cheese Sandwich", price: "₹300" },
+        { name: "French Fries", price: "₹170" },
+        { name: "Peri Peri Fries", price: "₹200" },
+      ],
+    },
+    {
+      title: "Pizza",
+      emoji: "🍕",
+      image: "/assets/generated/menu-pizza.dim_600x400.jpg",
+      items: [
+        { name: "Margherita Pizza (Large)", price: "₹300" },
+        { name: "Corn Cheese Pizza (Large)", price: "₹300" },
+        { name: "Exotic Vegetable Pizza (Large)", price: "₹350" },
+        { name: "Spicy Tandoori Pizza (Large)", price: "₹350" },
+        { name: "Mexican Pizza (Large)", price: "₹350" },
+        { name: "Italian Pizza (Large)", price: "₹350" },
+        { name: "Paneer Tikka Pizza (Large)", price: "₹380" },
+      ],
+    },
+    {
+      title: "Pasta",
+      emoji: "🍝",
+      image: "/assets/generated/menu-pasta.dim_600x400.jpg",
+      items: [
+        { name: "Red Pasta", price: "₹300" },
+        { name: "White Sauce Pasta", price: "₹350" },
+        { name: "Pink Sauce Pasta", price: "₹350" },
+        { name: "Basil Pesto Pasta", price: "₹350" },
+      ],
+    },
+    {
+      title: "Sizzlers",
+      emoji: "🔥",
+      image: "/assets/generated/menu-sizzlers.dim_600x400.jpg",
+      items: [
+        { name: "Indian Sizzler", price: "₹550" },
+        { name: "China Town", price: "₹550" },
+        { name: "Mexican Sizzler", price: "₹600" },
+      ],
+    },
+    {
+      title: "Pakode",
+      emoji: "🧆",
+      image: "/assets/generated/menu-pakode.dim_600x400.jpg",
+      items: [
+        { name: "Veg Pakode", price: "₹200" },
+        { name: "Corn Pakode", price: "₹250" },
+        { name: "Paneer Pakode", price: "₹300" },
+      ],
+    },
+    {
+      title: "Chaat",
+      emoji: "🥗",
+      image: "/assets/generated/menu-chaat.dim_600x400.jpg",
+      items: [
+        { name: "Vegetable Chat", price: "₹300" },
+        { name: "Vegetable Peanut Chat", price: "₹350" },
+        { name: "Vegetable Paneer Chat", price: "₹400" },
+        { name: "Vegetable Paneer Peanut Chat", price: "₹450" },
+      ],
+    },
+    {
+      title: "Paneer Main Course",
+      emoji: "🧀",
+      image: "/assets/generated/menu-paneer.dim_600x400.jpg",
+      items: [
+        { name: "Palak Paneer", price: "₹250" },
+        { name: "Matar Paneer", price: "₹250" },
+        { name: "Shahi Paneer", price: "₹250" },
+        { name: "Kadai Paneer", price: "₹250" },
+        { name: "Paneer Masala", price: "₹250" },
+        { name: "Paneer Chatpata", price: "₹250" },
+        { name: "Paneer Handi", price: "₹250" },
+        { name: "Paneer Butter Masala", price: "₹290" },
+        { name: "Paneer Lazeez", price: "₹300" },
+        { name: "Paneer Tufani", price: "₹300" },
+        { name: "Paneer Angara", price: "₹300" },
+        { name: "Paneer Tikka Masala", price: "₹350" },
+        { name: "Paneer Afghani Masala", price: "₹370" },
+        { name: "Paneer Kali Mirch", price: "₹370" },
+        { name: "Paneer Bhurji", price: "₹400" },
+        { name: "Kaju Paneer", price: "₹350" },
+        { name: "Kaju Curry", price: "₹400" },
+        { name: "Kaju Cheese Curry", price: "₹450" },
+      ],
+    },
+    {
+      title: "Veg Main Course",
+      emoji: "🍛",
+      image: "/assets/generated/menu-veg-main.dim_600x400.jpg",
+      items: [
+        { name: "Aloo Matar Gobhi", price: "₹200" },
+        { name: "Mix Veg", price: "₹200" },
+        { name: "Aloo Methi", price: "₹200" },
+        { name: "Jeera Aloo", price: "₹200" },
+        { name: "Palak Garlic", price: "₹200" },
+        { name: "Palak Corn", price: "₹200" },
+        { name: "Aloo Palak", price: "₹200" },
+        { name: "Matar Masala", price: "₹200" },
+        { name: "Veg Hyderabadi", price: "₹250" },
+        { name: "Chana Masala", price: "₹250" },
+        { name: "Veg Kolhapuri", price: "₹250" },
+        { name: "Veg Angara", price: "₹250" },
+        { name: "Veg Kadai", price: "₹300" },
+        { name: "Veg Handi", price: "₹300" },
+        { name: "Veg Makhanwala", price: "₹320" },
+        { name: "Veg Kofta", price: "₹350" },
+        { name: "Malai Kofta (Sweet)", price: "₹350" },
+        { name: "Methi Mutter Malai", price: "₹350" },
+      ],
+    },
+    {
+      title: "Breads",
+      emoji: "🍞",
+      image: "/assets/generated/menu-breads.dim_600x400.jpg",
+      items: [
+        { name: "Plain Tandoori Roti", price: "₹20" },
+        { name: "Butter Tandoori Roti", price: "₹30" },
+        { name: "Lachha Paratha", price: "₹60" },
+        { name: "Kulcha", price: "₹60" },
+        { name: "Plain Naan", price: "₹80" },
+        { name: "Butter Naan", price: "₹90" },
+        { name: "Garlic Naan", price: "₹100" },
+        { name: "Cheese Naan", price: "₹130" },
+        { name: "Cheese Garlic Naan", price: "₹150" },
+        { name: "Cheese Chilli Naan", price: "₹150" },
+      ],
+    },
+    {
+      title: "Rice",
+      emoji: "🍚",
+      image: "/assets/generated/menu-rice.dim_600x400.jpg",
+      items: [
+        { name: "Plain Rice", price: "₹150" },
+        { name: "Jeera Rice", price: "₹200" },
+        { name: "Veg Pulao", price: "₹250" },
+        { name: "Matar Pulao", price: "₹250" },
+        { name: "Veg Biryani", price: "₹300" },
+        { name: "Veg Hyderabadi Biryani", price: "₹350" },
+        { name: "Veg Fry Rice", price: "₹350" },
+        { name: "Schezwan Fry Rice", price: "₹400" },
+        { name: "Singapore Fry Rice", price: "₹400" },
+        { name: "Manchurian Fry Rice", price: "₹400" },
+        { name: "Butter Khichdi", price: "₹300" },
+        { name: "Kashmiri Pulao", price: "₹400" },
+      ],
+    },
+    {
+      title: "Dal",
+      emoji: "🥣",
+      image: "/assets/generated/menu-dal.dim_600x400.jpg",
+      items: [
+        { name: "Dal Fry", price: "₹200" },
+        { name: "Dal Tadka", price: "₹200" },
+        { name: "Dal Fry Butter", price: "₹200" },
+        { name: "Dal Green Chilli", price: "₹200" },
+        { name: "Dal Palak", price: "₹200" },
+      ],
+    },
+    {
+      title: "Papad",
+      emoji: "🫓",
+      image: "/assets/generated/menu-papad.dim_600x400.jpg",
+      items: [
+        { name: "Roasted Papad", price: "₹30" },
+        { name: "Fry Papad", price: "₹40" },
+        { name: "Masala Papad", price: "₹60" },
+        { name: "Roasted Masala Papad", price: "₹60" },
+        { name: "Cheese Masala Papad", price: "₹140" },
+      ],
+    },
+    {
+      title: "Raita",
+      emoji: "🥗",
+      image: "/assets/generated/menu-raita.dim_600x400.jpg",
+      items: [
+        { name: "Vegetable Raita", price: "₹250" },
+        { name: "Boondi Raita", price: "₹250" },
+        { name: "Pineapple Raita (Sweet)", price: "₹300" },
+      ],
+    },
+    {
+      title: "Dessert",
+      emoji: "🍨",
+      image: "/assets/generated/menu-dessert.dim_600x400.jpg",
+      items: [
+        { name: "Vanilla Ice Cream", price: "₹100" },
+        { name: "Strawberry Ice Cream", price: "₹100" },
+        { name: "Chocolate Ice Cream", price: "₹100" },
+        { name: "Butterscotch Ice Cream", price: "₹100" },
+        { name: "Vanilla Ice Cream with Gulab Jamun", price: "₹200" },
+        { name: "Hot Pot Sundae", price: "₹250" },
+        { name: "Ice Cream Fry", price: "₹300" },
+        { name: "Brownie with Ice Cream", price: "₹300" },
+      ],
+    },
+  ];
+
+  const buffet450Items = [
+    "Welcome Drinks",
+    "2 Types Starters",
+    "Paneer Sabzi",
+    "Half Gravy Sabzi / Veg Sabzi",
+    "Tandoori Roti / Naan / Lachha Paratha",
+    "Boondi / Veg Raita",
+    "Dal Tadka",
+    "Jeera Rice",
+    "Roasted Papad",
+    "Green Salad",
+    "Sweet (2 Types)",
+  ];
+
+  const buffet400Items = [
+    "Welcome Drinks",
+    "2 Types Starters",
+    "Paneer Sabzi",
+    "Half Gravy Sabzi / Veg Sabzi",
+    "Tandoori Roti / Naan / Lachha Paratha",
+    "Boondi / Veg Raita",
+    "Dal Tadka",
+    "Jeera Rice",
+    "Roasted Papad",
+    "Green Salad",
+    "Sweet (1 Type)",
+  ];
+
+  const regularBuffetItems = [
+    "5 Starters (Unlimited)",
+    "Main Course (Unlimited)",
+    "Paneer Sabji",
+    "Half Gravy Sabji",
+    "Dal Tadka",
+    "Tandoori Roti",
+    "Naan",
+    "Lachha Paratha",
+    "Jeera Rice",
+    "Boondi / Veg Raita",
+    "Roasted Papad",
+    "Green Salad",
+    "Sweet (1 Type)",
+  ];
+
+  const partyBuffet300Items = [
+    "Paneer Sabji",
+    "Half Gravy Sabji",
+    "Dal Tadka",
+    "Tandoori Roti",
+    "Naan",
+    "Lachha Paratha",
+    "Jeera Rice",
+    "Boondi / Veg Raita",
+    "Roasted Papad",
+    "Green Salad",
+    "Sweet (1 Type)",
+  ];
+
+  const partyBuffet350Items = [
+    "Welcome Drinks",
+    "Starters (1 Type)",
+    "Paneer Sabji",
+    "Half Gravy Sabji",
+    "Veg Sabji",
+    "Tandoori Roti",
+    "Naan",
+    "Lachha Paratha",
+    "Dal Tadka",
+    "Jeera Rice",
+    "Boondi / Veg Raita",
+    "Roasted Papad",
+    "Green Salad",
+    "Sweet (1 Type)",
+  ];
+
+  // 0-18 = regular sections, 19 = Special Buffet
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const allTabs = [
+    ...menuSections.map((s, i) => ({ label: `${s.emoji} ${s.title}`, idx: i })),
+    { label: "🍱 Special Buffet", idx: 19 },
+    { label: "🥘 Regular Buffet", idx: 20 },
+    { label: "🎉 Party Buffet", idx: 21 },
+  ];
+
+  const isBuffet =
+    activeIndex === 19 || activeIndex === 20 || activeIndex === 21;
+  const activeSection = isBuffet ? null : menuSections[activeIndex];
 
   return (
-    <section id="menu" className="section-white py-20 lg:py-28">
+    <section
+      id="menu"
+      style={{
+        background:
+          "linear-gradient(135deg, #f3e8ff 0%, #ede9fe 50%, #faf5ff 100%)",
+      }}
+      className="py-20 lg:py-28"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Heading */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -909,74 +1097,282 @@ function MenuSection() {
         >
           <motion.h2
             variants={fadeUp}
-            className="font-display text-4xl lg:text-5xl font-bold text-teal-700 mb-3"
+            className="font-display text-4xl lg:text-5xl font-bold text-purple-900 mb-3 drop-shadow"
           >
             Our Menu
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-muted-foreground">
+          <motion.p variants={fadeUp} className="text-purple-600 text-lg">
             Fresh, pure vegetarian food made with love
           </motion.p>
         </motion.div>
 
-        {/* Category tabs */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10">
-          {MENU_CATEGORIES.map((cat) => (
-            <button
-              type="button"
-              key={cat.key}
-              data-ocid="menu.tab"
-              onClick={() => setActiveCategory(cat.key)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeCategory === cat.key
-                  ? "bg-teal-600 text-white shadow-warm"
-                  : "bg-card border border-border text-foreground hover:bg-muted"
-              }`}
-            >
-              <span>{cat.emoji}</span>
-              {cat.label}
-            </button>
-          ))}
-        </div>
+        {/* Category chooser pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10"
+        >
+          <div className="flex flex-wrap gap-2 justify-center">
+            {allTabs.map((tab) => (
+              <button
+                key={tab.idx}
+                type="button"
+                data-ocid="menu.tab"
+                onClick={() => setActiveIndex(tab.idx)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                  activeIndex === tab.idx
+                    ? "bg-amber-400 text-purple-800 border-amber-400 shadow-lg scale-105"
+                    : "bg-white text-purple-800 border-purple-200 hover:bg-purple-100 hover:border-purple-300"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Menu grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-10">
-          {(MENU_ITEMS[activeCategory] || []).map((item, i) => (
+        {/* Active section card */}
+        <AnimatePresence mode="wait">
+          {!isBuffet && activeSection && (
             <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 16 }}
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05, duration: 0.4 }}
-              className="bg-card border border-border rounded-2xl overflow-hidden shadow-xs hover:shadow-warm transition-all hover:-translate-y-1"
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.35 }}
+              className="max-w-2xl mx-auto mb-10"
+              data-ocid={`menu.item.${activeIndex + 1}`}
             >
-              <div className="h-44 bg-green-50 border-b-2 border-dashed border-green-200 flex flex-col items-center justify-center gap-1">
-                <span className="text-4xl">📸</span>
-                <span className="text-green-500 text-xs">
-                  Photo Coming Soon
-                </span>
-              </div>
-              <div className="p-4">
-                <h4 className="font-display font-semibold text-emerald-700 text-sm leading-snug mb-1">
-                  {item.name}
-                </h4>
-                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
-                  {item.desc}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-teal-700 font-bold text-lg">
-                    ₹{item.price}
-                  </span>
-                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">
-                    Pure Veg
-                  </span>
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-purple-200">
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={activeSection.image}
+                    alt={activeSection.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4">
+                    <h3 className="text-white font-display font-bold text-2xl drop-shadow-lg">
+                      {activeSection.emoji} {activeSection.title}
+                    </h3>
+                  </div>
+                </div>
+                <div className="p-5">
+                  {activeSection.items.map((item, iIdx) => (
+                    <div key={item.name}>
+                      <div className="flex items-center justify-between py-2">
+                        <span className="text-sm text-gray-700 font-medium">
+                          {item.name}
+                        </span>
+                        {item.price !== null ? (
+                          <span className="text-sm font-bold text-purple-700 ml-4 shrink-0">
+                            {item.price}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-amber-600 ml-4 shrink-0 italic">
+                            Ask price
+                          </span>
+                        )}
+                      </div>
+                      {iIdx < activeSection.items.length - 1 && (
+                        <div className="border-b border-purple-50" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+
+          {isBuffet && (
+            <motion.div
+              key={`buffet-${activeIndex}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.35 }}
+              className="max-w-3xl mx-auto mb-10"
+              data-ocid={`menu.item.${activeIndex + 1}`}
+            >
+              {activeIndex === 19 && (
+                <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-amber-200">
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src="/assets/generated/menu-buffet.dim_600x400.jpg"
+                      alt="Special Buffet"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <h3 className="text-white font-display font-bold text-2xl drop-shadow-lg">
+                        🍱 Special Buffet
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-amber-50 rounded-xl p-4 border border-amber-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-amber-500 text-white text-lg font-bold px-3 py-1 rounded-full">
+                            ₹450
+                          </span>
+                          <span className="text-gray-600 text-sm font-medium">
+                            per person
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {buffet450Items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="text-amber-500 mt-0.5">✦</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-purple-700 text-white text-lg font-bold px-3 py-1 rounded-full">
+                            ₹400
+                          </span>
+                          <span className="text-gray-600 text-sm font-medium">
+                            per person
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {buffet400Items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="text-purple-500 mt-0.5">✦</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeIndex === 20 && (
+                <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-green-200">
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src="/assets/generated/menu-buffet.dim_600x400.jpg"
+                      alt="Regular Buffet"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <h3 className="text-white font-display font-bold text-2xl drop-shadow-lg">
+                        🥘 Regular Buffet
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="max-w-sm mx-auto">
+                      <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-green-600 text-white text-lg font-bold px-3 py-1 rounded-full">
+                            ₹300
+                          </span>
+                          <span className="text-gray-600 text-sm font-medium">
+                            per person
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {regularBuffetItems.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="text-green-500 mt-0.5">✦</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeIndex === 21 && (
+                <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-orange-200">
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src="/assets/generated/menu-buffet.dim_600x400.jpg"
+                      alt="Party Buffet"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <h3 className="text-white font-display font-bold text-2xl drop-shadow-lg">
+                        🎉 Party Buffet
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-orange-50 rounded-xl p-4 border border-orange-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-orange-500 text-white text-lg font-bold px-3 py-1 rounded-full">
+                            ₹300
+                          </span>
+                          <span className="text-gray-600 text-sm font-medium">
+                            per person
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {partyBuffet300Items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="text-orange-500 mt-0.5">✦</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-rose-50 rounded-xl p-4 border border-rose-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-rose-600 text-white text-lg font-bold px-3 py-1 rounded-full">
+                            ₹350
+                          </span>
+                          <span className="text-gray-600 text-sm font-medium">
+                            per person
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5">
+                          {partyBuffet350Items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-sm text-gray-700"
+                            >
+                              <span className="text-rose-500 mt-0.5">✦</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="text-center">
           <a
-            href="https://wa.me/919981716485"
+            href="https://wa.me/919575798248"
             target="_blank"
             rel="noopener noreferrer"
             data-ocid="menu.primary_button"
@@ -1204,7 +1600,8 @@ function BranchesSection() {
       icon: "🏠",
       name: "Second Home Mandsaur",
       city: "Mandsaur",
-      address: "Near Collectorate, Mandsaur, Madhya Pradesh 458001",
+      address:
+        "Nayapura Rd, near Maharana Pratap Bus Stand, ramtekri, Bhatrewas, Mandsaur, Madhya Pradesh 458001",
       phone: "+91 95757 98248",
       tel: "tel:+919575798248",
       whatsapp: "https://wa.me/919575798248",
@@ -1226,7 +1623,8 @@ function BranchesSection() {
       icon: "🌿",
       name: "Second Home Neemuch",
       city: "Neemuch",
-      address: "Neemuch, Madhya Pradesh 458441",
+      address:
+        "Neemuch City Rd, near Sundram Cinema, near by Sanwaliya Seth ji Temple, Neemuch, Madhya Pradesh 458441",
       phone: "+91 72258 98248",
       tel: "tel:+917225898248",
       whatsapp: "https://wa.me/917225898248",
@@ -1284,9 +1682,9 @@ function BranchesSection() {
               transition={{ delay: i * 0.15 }}
               className="bg-card border border-border rounded-3xl overflow-hidden shadow-xs hover:shadow-warm transition-all"
             >
-              <div className="h-48 bg-amber-50 border-b border-amber-100 flex items-center justify-center">
+              <div className="h-48 bg-white border-b border-gray-100 flex items-center justify-center">
                 <img
-                  src="/assets/uploads/Fainal-second-home-logo-1-1.PNG"
+                  src="/assets/generated/second-home-logo-white-bg.PNG"
                   alt="Second Home Logo"
                   className="h-36 w-auto object-contain drop-shadow-md"
                 />
@@ -1348,66 +1746,15 @@ function BranchesSection() {
 
 // ─── DECORATIONS ─────────────────────────────────────────────────────────────
 function DecorationsSection() {
-  const decorations = [
-    {
-      icon: "🎂",
-      title: "Birthday Decoration",
-      desc: "Make birthdays magical with balloons, banners, personalized messages, and themed setups. Perfect surprise arrangements for your loved ones.",
-      tags: ["Balloons", "Banners", "Themed", "Surprise Setup"],
-      price: "Starting ₹499",
-      border: "border-pink-200 hover:border-pink-400",
-    },
-    {
-      icon: "💑",
-      title: "Anniversary / Romantic Décor",
-      desc: "Roses, candles, fairy lights, and personalized setups for the most romantic evening. Let us create a magical atmosphere for your special day.",
-      tags: ["Rose Petals", "Candle Light", "Fairy Lights", "Personalized"],
-      price: "Starting ₹699",
-      border: "border-red-200 hover:border-red-400",
-    },
-    {
-      icon: "🌹",
-      title: "Proposal Setup",
-      desc: "Plan the perfect proposal with our romantic setup — rose arch, message boards, candles, and a setting that ensures a YES!",
-      tags: ["Rose Arch", "Message Board", "Exclusive Setup"],
-      price: "Starting ₹999",
-      border: "border-rose-200 hover:border-rose-400",
-    },
-    {
-      icon: "🎊",
-      title: "Party & Event Décor",
-      desc: "Full event decoration for kitty parties, reunions, farewell parties, and special occasions. We handle everything from setup to cleanup.",
-      tags: ["Full Décor", "Theme Lighting", "Table Setup"],
-      price: "Starting ₹1,499",
-      border: "border-green-200 hover:border-green-400",
-    },
-    {
-      icon: "👶",
-      title: "Baby Shower & Gender Reveal",
-      desc: "Celebrate the arrival of new life with cute, pastel-themed decorations, balloon installations, and heartwarming setups.",
-      tags: ["Pastel Theme", "Balloon Setup", "Photo Backdrop"],
-      price: "Starting ₹799",
-      border: "border-blue-200 hover:border-blue-400",
-    },
-    {
-      icon: "🏆",
-      title: "Custom Themed Décor",
-      desc: "Have a specific theme in mind? We'll bring your vision to life — Bollywood, Royal, Rustic Boho, Floral, or anything you imagine!",
-      tags: ["Custom Theme", "Any Occasion", "Fully Personalized"],
-      price: "Price on Request",
-      border: "border-amber-200 hover:border-amber-400",
-    },
-  ];
-
   return (
     <section id="decorations" className="section-warm py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <motion.p
             variants={fadeUp}
@@ -1421,77 +1768,63 @@ function DecorationsSection() {
           >
             Make Every Moment Special
           </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="text-muted-foreground max-w-xl mx-auto"
-          >
-            Beautiful decorations for every occasion — birthdays, anniversaries,
-            proposals & more
-          </motion.p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {decorations.map((d, i) => (
-            <motion.div
-              key={d.title}
-              data-ocid={`decorations.item.${i + 1}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className={`bg-card border-2 ${d.border} rounded-3xl overflow-hidden shadow-xs hover:shadow-warm-lg transition-all hover:-translate-y-1`}
-            >
-              <div className="h-44 bg-green-50 border-b-2 border-dashed border-green-200 flex flex-col items-center justify-center gap-2">
-                <span className="text-5xl">{d.icon}</span>
-                <span className="text-3xl">📸</span>
-                <span className="text-green-400 text-xs">
-                  Photo Coming Soon
-                </span>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display font-bold text-lg text-emerald-700 mb-2">
-                  {d.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-3">{d.desc}</p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {d.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-amber-600 font-bold text-sm">
-                    {d.price}
-                  </span>
-                  <a
-                    href="https://wa.me/919981716485"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-amber-500 hover:bg-amber-600 text-white text-xs px-3 py-1.5 rounded-full font-semibold transition-colors"
-                  >
-                    Book Now
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="text-center">
+        {/* Photos Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-card border-2 border-amber-200 rounded-3xl p-8 mb-10 shadow-sm text-center"
+        >
+          <div className="text-4xl mb-4">🎀</div>
+          <h3 className="font-display text-2xl font-bold text-amber-600 mb-4">
+            Photos
+          </h3>
+          <p className="text-gray-700 text-base leading-relaxed max-w-2xl mx-auto mb-6">
+            We support vast and reasonable varieties of decoration for most
+            events — birthdays, anniversaries, proposals, baby showers, and
+            more. Make your special moments truly unforgettable with our
+            beautiful, customized setups. Click below to explore our full
+            decoration collection with photos and prices.
+          </p>
           <a
-            href="https://wa.me/919981716485?text=Hi!%20I'd%20like%20to%20enquire%20about%20decoration%20packages%20at%20Smiley%20Home%20Restaurant."
+            href="https://q.me-qr.com/mdpaazj9"
             target="_blank"
             rel="noopener noreferrer"
-            data-ocid="decorations.primary_button"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-colors mb-4"
           >
-            🎀 Enquire About Decorations
+            🎀 Please Click for Vast Decoration
           </a>
-        </div>
+          <p className="text-gray-700 text-sm font-medium mt-3">
+            For order any decoration, please send screenshot to our chat:{" "}
+            <a
+              href="https://wa.me/919575798248"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 font-bold hover:underline"
+            >
+              WhatsApp: +91 9575798248
+            </a>
+          </p>
+        </motion.div>
+
+        {/* Videos Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="bg-card border-2 border-purple-200 rounded-3xl p-8 shadow-sm text-center"
+        >
+          <div className="text-4xl mb-4">🎬</div>
+          <h3 className="font-display text-2xl font-bold text-purple-600 mb-4">
+            Videos
+          </h3>
+          <p className="text-gray-500 text-base italic">
+            Video Setups Coming Soon...
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -1679,6 +2012,22 @@ function ReviewsSection() {
             );
           })}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-10"
+        >
+          <a
+            href="https://www.google.com/search?client=tablet-android-lenovo-rvo3&hs=YdtU&sca_esv=4e439cc8ed654093&sxsrf=ANbL-n4GBY6ZYs4rDSjmPVz-Gfx6PiMnmw:1774114552521&q=smiley+home+restaurant+mandsaur+reviews&uds=ALYpb_kZaRqzyF4xJu95rhlPO-1eyzOGRSjCD7EdlLlCTQS70WCrj_Q3K236aio7tG2xseeMoGUCJIuH3f8NA1IpicuV9aC6_NASiHa2zfKY9nMgOhylJMyWG9ymKmpsgHE7Gp44oo-caoJS4pm3tlfVmGULRUVqxdoEHw9RL-ZW-gh9n1qlRlbQrggFunhpLssE0CkgBAtCFkFVxbW6g08WsNlz676YGy7ipIB-80nHazC2gNWqaGtbObGCbvmb5ziIR2y3XkK_DTbcvd2SHv247vDcq9LL1I6M_0HCTqMf00mvsCqGLTC8h03Swnp6UwDm0PS1HErKidsFTmb9VBB1qU4U6DoBIxj8eeHaCs71BJDXDpZxIs7aYASiKND2-QSbZHF34psmJfX7KsdqTOsIK8zGSo7FJFQhNGobGQ1rn52R9RTpARcY2KRn5U4jO5Imj8RKmgy6wmF1kETxJH7n4c0JIPJRNQ&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVB8HVXsOwRn9x0sNsJfP2YwYrTY_WHi8f9fMxpYm41YsXWOG48bKFS_i_tEZPm_FmB25i1Pj241GE6mEQbKa-aU7WJP_UOiwI9lmgI8Q6AAJfocsw%3D%3D&sa=X&sqi=2&ved=2ahUKEwj9msbdw7GTAxWMs1YBHUZZBjgQk8gLegQIJRAB&ictx=1&stq=1&cs=0&lei=-Na-af2-H4zn2roPxrKZwAM#ebo=2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-all text-base"
+          >
+            🌟 See What More People Say About Us on Google
+          </a>
+        </motion.div>
       </div>
     </section>
   );
