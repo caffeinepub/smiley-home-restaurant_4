@@ -1372,7 +1372,7 @@ function MenuSection() {
 
         <div className="text-center">
           <a
-            href="https://wa.me/919575798248"
+            href="https://wa.me/919981716485"
             target="_blank"
             rel="noopener noreferrer"
             data-ocid="menu.primary_button"
@@ -1608,6 +1608,8 @@ function BranchesSection() {
       mapLink:
         "https://maps.google.com/?q=Second+Home+Restaurant+Mandsaur+Madhya+Pradesh",
       hours: "Mon–Sun: 11:00 AM – 11:00 PM",
+      owner: "Er. Rakesh Mali",
+      manager: "Govind Gurjar",
       features: [
         "Rajasthani Cuisine",
         "Dal Baati Churma",
@@ -1631,6 +1633,8 @@ function BranchesSection() {
       mapLink:
         "https://maps.google.com/?q=Second+Home+Neemuch+Madhya+Pradesh+458441",
       hours: "Mon–Sun: 11:00 AM – 11:00 PM",
+      owner: "Er. Rakesh Mali",
+      manager: "Govind Gurjar",
       features: [
         "Rajasthani Cuisine",
         "Dal Baati Churma",
@@ -1694,6 +1698,24 @@ function BranchesSection() {
                   {b.name}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">{b.city}</p>
+                <div className="flex flex-col gap-1 mb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-amber-600 uppercase tracking-wide">
+                      Owner:
+                    </span>
+                    <span className="text-sm font-semibold text-teal-700">
+                      {(b as any).owner}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-emerald-600 uppercase tracking-wide">
+                      Manager:
+                    </span>
+                    <span className="text-sm font-semibold text-teal-700">
+                      {(b as any).manager}
+                    </span>
+                  </div>
+                </div>
                 <div className="flex items-start gap-2 mb-2">
                   <MapPin className="h-4 w-4 text-teal-500 mt-0.5 shrink-0" />
                   <span className="text-sm text-foreground">{b.address}</span>
@@ -1746,6 +1768,33 @@ function BranchesSection() {
 
 // ─── DECORATIONS ─────────────────────────────────────────────────────────────
 function DecorationsSection() {
+  const videos = [
+    {
+      src: "/assets/uploads/11_1-019d23af-4f9c-712e-821d-d967e838df75-1.mp4",
+      price: "5000",
+      number: "C1",
+      comingSoon: false,
+    },
+    {
+      src: "/assets/uploads/12_1-019d23b3-db01-7170-bde9-ba536b97e9c2-2.mp4",
+      price: "3500",
+      number: "C2",
+      comingSoon: false,
+    },
+    {
+      src: "",
+      price: "4000",
+      number: "C3",
+      comingSoon: true,
+    },
+    {
+      src: "",
+      price: "3000",
+      number: "C4",
+      comingSoon: true,
+    },
+  ];
+
   return (
     <section id="decorations" className="section-warm py-20 lg:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -1760,7 +1809,7 @@ function DecorationsSection() {
             variants={fadeUp}
             className="text-emerald-700 uppercase tracking-widest text-sm font-semibold mb-3"
           >
-            ✦ Decoration Services
+            &#x2726; Decoration Services
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -1777,36 +1826,45 @@ function DecorationsSection() {
           viewport={{ once: true }}
           className="bg-card border-2 border-amber-200 rounded-3xl p-8 mb-10 shadow-sm text-center"
         >
-          <div className="text-4xl mb-4">🎀</div>
+          <div className="text-4xl mb-4">&#127872;</div>
           <h3 className="font-display text-2xl font-bold text-amber-600 mb-4">
             Photos
           </h3>
           <p className="text-gray-700 text-base leading-relaxed max-w-2xl mx-auto mb-6">
             We support vast and reasonable varieties of decoration for most
-            events — birthdays, anniversaries, proposals, baby showers, and
-            more. Make your special moments truly unforgettable with our
+            events &mdash; birthdays, anniversaries, proposals, baby showers,
+            and more. Make your special moments truly unforgettable with our
             beautiful, customized setups. Click below to explore our full
             decoration collection with photos and prices.
           </p>
-          <a
-            href="https://q.me-qr.com/mdpaazj9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-colors mb-4"
-          >
-            🎀 Please Click for Vast Decoration
-          </a>
-          <p className="text-gray-700 text-sm font-medium mt-3">
-            For order any decoration, please send screenshot to our chat:{" "}
+          <div className="relative inline-block mb-6">
+            <span className="absolute inset-0 rounded-full animate-ping bg-amber-400 opacity-40 scale-110 pointer-events-none" />
             <a
-              href="https://wa.me/919575798248"
+              href="https://drive.google.com/file/d/1aEAazHQeI1DUjFQzcF5DNk5BRxkmFL3s/preview"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-600 font-bold hover:underline"
+              className="relative inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:scale-105"
+              style={{
+                animation: "attention-pulse 2s ease-in-out infinite",
+                boxShadow: "0 0 24px 6px rgba(251,191,36,0.5)",
+              }}
             >
-              WhatsApp: +91 9575798248
+              &#127872; Please Click for Vast Decoration
             </a>
-          </p>
+          </div>
+          <div className="bg-amber-50 border-2 border-amber-500 rounded-2xl px-6 py-4 max-w-xl mx-auto">
+            <p className="text-amber-900 font-black text-base uppercase tracking-wide">
+              PLEASE TAKE SCREENSHOT AND SEND US ON OUR WHATSAPP NUMBER
+            </p>
+            <a
+              href="https://wa.me/919981716485"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-full text-sm transition-all shadow"
+            >
+              WhatsApp: +91 9981716485
+            </a>
+          </div>
         </motion.div>
 
         {/* Videos Section */}
@@ -1815,15 +1873,63 @@ function DecorationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="bg-card border-2 border-purple-200 rounded-3xl p-8 shadow-sm text-center"
+          className="bg-card border-2 border-purple-200 rounded-3xl p-8 shadow-sm"
         >
-          <div className="text-4xl mb-4">🎬</div>
-          <h3 className="font-display text-2xl font-bold text-purple-600 mb-4">
-            Videos
-          </h3>
-          <p className="text-gray-500 text-base italic">
-            Video Setups Coming Soon...
-          </p>
+          <div className="text-center mb-8">
+            <div className="text-4xl mb-4">&#127916;</div>
+            <h3 className="font-display text-2xl font-bold text-purple-600">
+              Videos
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            {videos.map((v) => (
+              <div
+                key={v.number}
+                className="bg-purple-50 border border-purple-200 rounded-2xl overflow-hidden shadow-sm"
+              >
+                {v.comingSoon ? (
+                  <div className="w-full h-48 flex flex-col items-center justify-center bg-purple-100 gap-2">
+                    <span className="text-3xl">&#127916;</span>
+                    <p className="text-purple-500 font-semibold text-base italic">
+                      Videos Coming Soon
+                    </p>
+                  </div>
+                ) : (
+                  <video
+                    src={v.src}
+                    controls
+                    className="w-full h-48 object-cover bg-black"
+                  >
+                    <track kind="captions" />
+                  </video>
+                )}
+                <div className="p-4 border-t border-purple-100">
+                  <p className="text-gray-800 font-bold text-sm uppercase tracking-wide">
+                    PRICE &mdash; Rs.{v.price}
+                  </p>
+                  <p className="text-purple-700 font-bold text-sm uppercase tracking-wide mt-1">
+                    VIDEO SETUP NUMBER &mdash; {v.number}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-purple-50 border-2 border-purple-500 rounded-2xl px-6 py-4 text-center">
+            <p className="text-purple-900 font-black text-base uppercase tracking-wide">
+              FOR VIDEO SETUP ORDERS PLEASE MESSAGE US WITH THE VIDEO SETUP
+              NUMBER ON OUR WHATSAPP NUMBER
+            </p>
+            <a
+              href="https://wa.me/919981716485"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-2 rounded-full text-sm transition-all shadow"
+            >
+              WhatsApp: +91 9981716485
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -1960,7 +2066,7 @@ function ReviewsSection() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {REVIEWS.map((review, i) => {
+          {REVIEWS.slice(0, 5).map((review, i) => {
             const initials = review.name
               .split(" ")
               .map((n) => n[0])
@@ -2017,16 +2123,28 @@ function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-center mt-10"
+          className="text-center mt-14"
         >
-          <a
-            href="https://www.google.com/search?client=tablet-android-lenovo-rvo3&hs=YdtU&sca_esv=4e439cc8ed654093&sxsrf=ANbL-n4GBY6ZYs4rDSjmPVz-Gfx6PiMnmw:1774114552521&q=smiley+home+restaurant+mandsaur+reviews&uds=ALYpb_kZaRqzyF4xJu95rhlPO-1eyzOGRSjCD7EdlLlCTQS70WCrj_Q3K236aio7tG2xseeMoGUCJIuH3f8NA1IpicuV9aC6_NASiHa2zfKY9nMgOhylJMyWG9ymKmpsgHE7Gp44oo-caoJS4pm3tlfVmGULRUVqxdoEHw9RL-ZW-gh9n1qlRlbQrggFunhpLssE0CkgBAtCFkFVxbW6g08WsNlz676YGy7ipIB-80nHazC2gNWqaGtbObGCbvmb5ziIR2y3XkK_DTbcvd2SHv247vDcq9LL1I6M_0HCTqMf00mvsCqGLTC8h03Swnp6UwDm0PS1HErKidsFTmb9VBB1qU4U6DoBIxj8eeHaCs71BJDXDpZxIs7aYASiKND2-QSbZHF34psmJfX7KsdqTOsIK8zGSo7FJFQhNGobGQ1rn52R9RTpARcY2KRn5U4jO5Imj8RKmgy6wmF1kETxJH7n4c0JIPJRNQ&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVB8HVXsOwRn9x0sNsJfP2YwYrTY_WHi8f9fMxpYm41YsXWOG48bKFS_i_tEZPm_FmB25i1Pj241GE6mEQbKa-aU7WJP_UOiwI9lmgI8Q6AAJfocsw%3D%3D&sa=X&sqi=2&ved=2ahUKEwj9msbdw7GTAxWMs1YBHUZZBjgQk8gLegQIJRAB&ictx=1&stq=1&cs=0&lei=-Na-af2-H4zn2roPxrKZwAM#ebo=2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-all text-base"
-          >
-            🌟 See What More People Say About Us on Google
-          </a>
+          <div className="relative inline-block">
+            {/* Pulsing glow ring behind the button */}
+            <span className="absolute inset-0 rounded-full animate-ping bg-amber-400 opacity-30 scale-110 pointer-events-none" />
+            <a
+              href="https://www.google.com/search?client=tablet-android-lenovo-rvo3&hs=YdtU&sca_esv=4e439cc8ed654093&sxsrf=ANbL-n4GBY6ZYs4rDSjmPVz-Gfx6PiMnmw:1774114552521&q=smiley+home+restaurant+mandsaur+reviews&uds=ALYpb_kZaRqzyF4xJu95rhlPO-1eyzOGRSjCD7EdlLlCTQS70WCrj_Q3K236aio7tG2xseeMoGUCJIuH3f8NA1IpicuV9aC6_NASiHa2zfKY9nMgOhylJMyWG9ymKmpsgHE7Gp44oo-caoJS4pm3tlfVmGULRUVqxdoEHw9RL-ZW-gh9n1qlRlbQrggFunhpLssE0CkgBAtCFkFVxbW6g08WsNlz676YGy7ipIB-80nHazC2gNWqaGtbObGCbvmb5ziIR2y3XkK_DTbcvd2SHv247vDcq9LL1I6M_0HCTqMf00mvsCqGLTC8h03Swnp6UwDm0PS1HErKidsFTmb9VBB1qU4U6DoBIxj8eeHaCs71BJDXDpZxIs7aYASiKND2-QSbZHF34psmJfX7KsdqTOsIK8zGSo7FJFQhNGobGQ1rn52R9RTpARcY2KRn5U4jO5Imj8RKmgy6wmF1kETxJH7n4c0JIPJRNQ&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVB8HVXsOwRn9x0sNsJfP2YwYrTY_WHi8f9fMxpYm41YsXWOG48bKFS_i_tEZPm_FmB25i1Pj241GE6mEQbKa-aU7WJP_UOiwI9lmgI8Q6AAJfocsw%3D%3D&sa=X&sqi=2&ved=2ahUKEwj9msbdw7GTAxWMs1YBHUZZBjgQk8gLegQIJRAB&ictx=1&stq=1&cs=0&lei=-Na-af2-H4zn2roPxrKZwAM#ebo=2"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-ocid="reviews.button"
+              className="relative inline-flex items-center gap-3 bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-400 hover:from-amber-500 hover:to-orange-600 text-white font-extrabold text-xl px-10 py-5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 ring-4 ring-amber-300 ring-offset-2"
+              style={{ animation: "attention-pulse 2s ease-in-out infinite" }}
+            >
+              ⭐ See What More People Say About Us on Google ⭐
+            </a>
+          </div>
+          <style>{`
+            @keyframes attention-pulse {
+              0%, 100% { box-shadow: 0 0 20px 4px rgba(251,191,36,0.6), 0 0 40px 10px rgba(251,191,36,0.3); }
+              50% { box-shadow: 0 0 35px 10px rgba(251,191,36,0.9), 0 0 70px 20px rgba(251,191,36,0.5); }
+            }
+          `}</style>
         </motion.div>
       </div>
     </section>
