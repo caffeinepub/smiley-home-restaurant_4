@@ -193,7 +193,7 @@ function Navbar() {
         <button
           type="button"
           data-ocid="nav.toggle"
-          className={`xl:hidden p-2 rounded-lg ${textColor}`}
+          className="xl:hidden p-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white shadow-md"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? (
@@ -1571,7 +1571,7 @@ function GallerySection() {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center flex flex-col items-center gap-4">
           <a
             href="https://www.instagram.com/smiley_home_mandsaur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
@@ -1582,6 +1582,15 @@ function GallerySection() {
             <SiInstagram className="h-5 w-5" />
             Follow us on Instagram @smiley_home_mandsaur to see the latest
             photos!
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1II2tELlh4tj3xtOqGp1UnovT_aij6clM/preview"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg animate-pulse transition-colors"
+            style={{ boxShadow: "0 0 20px rgba(245,158,11,0.6)" }}
+          >
+            📸 Please Click to Enjoy Our Restaurant Photos
           </a>
         </div>
       </div>
