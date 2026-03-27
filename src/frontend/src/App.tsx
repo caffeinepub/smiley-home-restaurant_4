@@ -263,7 +263,6 @@ function HeroSection() {
     "/assets/uploads/IMG_6278-4.jpeg",
     "/assets/uploads/IMG_1068-1.jpeg",
     "/assets/uploads/IMG_1063-2-2.jpeg",
-    "/assets/uploads/IMG_1063-3-3.jpeg",
   ];
   const [activeSlide, setActiveSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState<number | null>(null);
@@ -1396,8 +1395,8 @@ function OffersSection() {
       badge: "Catering",
       badgeClass: "bg-blue-100 text-blue-700",
       borderClass: "border-blue-200",
-      subtitle: "₹3,999 onward",
-      desc: "Customized party platters and bulk catering for all events in Mandsaur. Starting at ₹3,999 per event.",
+      subtitle: "",
+      desc: "Customized party platters and bulk catering for all events in Mandsaur.",
     },
     {
       icon: "🍽️",
@@ -1460,9 +1459,11 @@ function OffersSection() {
               <h3 className="font-display text-2xl font-bold text-emerald-700 mb-1">
                 {offer.title}
               </h3>
-              <p className="text-emerald-700 font-semibold mb-3">
-                {offer.subtitle}
-              </p>
+              {offer.subtitle && (
+                <p className="text-emerald-700 font-semibold mb-3">
+                  {offer.subtitle}
+                </p>
+              )}
               <p className="text-muted-foreground text-sm">{offer.desc}</p>
             </motion.div>
           ))}
@@ -1499,11 +1500,6 @@ function GallerySection() {
     {
       src: "/assets/uploads/IMG_1063-2-2.jpeg",
       alt: "Food Spread with Noodles",
-      rotate: false,
-    },
-    {
-      src: "/assets/uploads/IMG_1063-3-3.jpeg",
-      alt: "Food Spread Noodles Angle 2",
       rotate: false,
     },
     {
