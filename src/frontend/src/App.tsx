@@ -136,7 +136,7 @@ function Navbar() {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
           ? "bg-emerald-800/95 backdrop-blur-md shadow-lg border-b border-emerald-700"
-          : "bg-transparent"
+          : "bg-transparent xl:bg-transparent bg-emerald-800/90"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -219,10 +219,9 @@ function Navbar() {
                   type="button"
                   key={link.id}
                   data-ocid="nav.link"
-                  onPointerDown={(e) => {
-                    e.preventDefault();
-                    scrollTo(link.id);
+                  onClick={() => {
                     setMobileOpen(false);
+                    setTimeout(() => scrollTo(link.id), 320);
                   }}
                   style={{ touchAction: "manipulation" }}
                   className="text-left px-3 py-2 text-sm font-medium text-white hover:bg-emerald-700 rounded-lg transition-colors"
@@ -1894,7 +1893,7 @@ function DecorationsSection() {
                 className="bg-purple-50 border border-purple-200 rounded-2xl overflow-hidden shadow-sm"
               >
                 {v.comingSoon ? (
-                  <div className="w-full h-48 flex flex-col items-center justify-center bg-purple-100 gap-2">
+                  <div className="w-full aspect-[9/16] flex flex-col items-center justify-center bg-purple-100 gap-2">
                     <span className="text-3xl">&#127916;</span>
                     <p className="text-purple-500 font-semibold text-base italic">
                       Videos Coming Soon
@@ -1904,7 +1903,7 @@ function DecorationsSection() {
                   <video
                     src={v.src}
                     controls
-                    className="w-full h-48 object-cover bg-black"
+                    className="w-full aspect-[9/16] object-cover bg-black"
                   >
                     <track kind="captions" />
                   </video>
