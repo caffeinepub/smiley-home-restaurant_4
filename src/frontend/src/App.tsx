@@ -1786,10 +1786,10 @@ function DecorationsSection() {
       comingSoon: false,
     },
     {
-      src: "",
+      src: "/assets/uploads/3-019d292b-2589-71ea-8e3e-0f37c6fb5bad.mp4",
       price: "4000",
       number: "C3",
-      comingSoon: true,
+      comingSoon: false,
     },
     {
       src: "",
