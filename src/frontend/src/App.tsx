@@ -1583,7 +1583,7 @@ function GallerySection() {
             photos!
           </a>
           <a
-            href="https://drive.google.com/file/d/1II2tELlh4tj3xtOqGp1UnovT_aij6clM/preview"
+            href="https://drive.google.com/file/d/1KYPRmm7faEOlCZKHeyk3XCy_5ArD8wNw/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg animate-pulse transition-colors"
