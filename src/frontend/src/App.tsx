@@ -1772,33 +1772,6 @@ function BranchesSection() {
 
 // ─── DECORATIONS ─────────────────────────────────────────────────────────────
 function DecorationsSection() {
-  const videos = [
-    {
-      src: "/assets/uploads/11_1-019d23af-4f9c-712e-821d-d967e838df75-1.mp4",
-      price: "5000",
-      number: "C1",
-      comingSoon: false,
-    },
-    {
-      src: "/assets/uploads/12_1-019d23b3-db01-7170-bde9-ba536b97e9c2-2.mp4",
-      price: "3500",
-      number: "C2",
-      comingSoon: false,
-    },
-    {
-      src: "/assets/uploads/3-019d292b-2589-71ea-8e3e-0f37c6fb5bad.mp4",
-      price: "4000",
-      number: "C3",
-      comingSoon: false,
-    },
-    {
-      src: "",
-      price: "3000",
-      number: "C4",
-      comingSoon: true,
-    },
-  ];
-
   return (
     <section id="decorations" className="section-warm py-20 lg:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -1844,7 +1817,7 @@ function DecorationsSection() {
           <div className="relative inline-block mb-6">
             <span className="absolute inset-0 rounded-full animate-ping bg-amber-400 opacity-40 scale-110 pointer-events-none" />
             <a
-              href="https://drive.google.com/file/d/1aEAazHQeI1DUjFQzcF5DNk5BRxkmFL3s/preview"
+              href="https://drive.google.com/file/d/18FEduRg3EG_sOkZG1zeicZkAVtgvghkk/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:scale-105"
@@ -1877,53 +1850,37 @@ function DecorationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="bg-card border-2 border-purple-200 rounded-3xl p-8 shadow-sm"
+          className="bg-card border-2 border-purple-200 rounded-3xl p-8 shadow-sm text-center"
         >
-          <div className="text-center mb-8">
-            <div className="text-4xl mb-4">&#127916;</div>
-            <h3 className="font-display text-2xl font-bold text-purple-600">
-              Videos
-            </h3>
+          <div className="text-4xl mb-4">&#127916;</div>
+          <h3 className="font-display text-2xl font-bold text-purple-600 mb-4">
+            Videos
+          </h3>
+          <p className="text-gray-700 text-base leading-relaxed max-w-2xl mx-auto mb-6">
+            Explore our stunning decoration video setups for every occasion
+            &mdash; birthdays, weddings, anniversaries, and more. Watch our
+            setups in action and choose your perfect decoration theme. Click
+            below to view all our video setups on YouTube.
+          </p>
+          <div className="relative inline-block mb-6">
+            <span className="absolute inset-0 rounded-full animate-ping bg-purple-400 opacity-40 scale-110 pointer-events-none" />
+            <a
+              href="https://drive.google.com/drive/folders/1uRI-51iIyeGnSKPbKqvL3NilIY11LS-f?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-all hover:scale-105"
+              style={{
+                animation: "attention-pulse 2s ease-in-out infinite",
+                boxShadow: "0 0 24px 6px rgba(147,51,234,0.45)",
+              }}
+            >
+              &#127916; Please Click for Vast Video Setups
+            </a>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            {videos.map((v) => (
-              <div
-                key={v.number}
-                className="bg-purple-50 border border-purple-200 rounded-2xl overflow-hidden shadow-sm"
-              >
-                {v.comingSoon ? (
-                  <div className="w-full aspect-[9/16] flex flex-col items-center justify-center bg-purple-100 gap-2">
-                    <span className="text-3xl">&#127916;</span>
-                    <p className="text-purple-500 font-semibold text-base italic">
-                      Videos Coming Soon
-                    </p>
-                  </div>
-                ) : (
-                  <video
-                    src={v.src}
-                    controls
-                    className="w-full aspect-[9/16] object-cover bg-black"
-                  >
-                    <track kind="captions" />
-                  </video>
-                )}
-                <div className="p-4 border-t border-purple-100">
-                  <p className="text-gray-800 font-bold text-sm uppercase tracking-wide">
-                    PRICE &mdash; Rs.{v.price}
-                  </p>
-                  <p className="text-purple-700 font-bold text-sm uppercase tracking-wide mt-1">
-                    VIDEO SETUP NUMBER &mdash; {v.number}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-purple-50 border-2 border-purple-500 rounded-2xl px-6 py-4 text-center">
+          <div className="bg-purple-50 border-2 border-purple-500 rounded-2xl px-6 py-4 max-w-xl mx-auto">
             <p className="text-purple-900 font-black text-base uppercase tracking-wide">
-              FOR VIDEO SETUP ORDERS PLEASE MESSAGE US WITH THE VIDEO SETUP
-              NUMBER ON OUR WHATSAPP NUMBER
+              Please tell us the setup number provided by us in the video and
+              book the setup by contacting us on our WhatsApp number
             </p>
             <a
               href="https://wa.me/919981716485"
@@ -2473,7 +2430,7 @@ function Footer() {
 // ─── APP ─────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
-    <div className="font-body">
+    <div className="font-body overflow-x-hidden w-full">
       <Navbar />
       <main>
         <HeroSection />
